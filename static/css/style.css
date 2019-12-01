@@ -1,0 +1,47 @@
+h1 {
+    color: rgba(65, 118, 144, 1);
+}
+
+.custom-table table {
+    border: 1px solid rgba(100, 100, 100, 1);
+    color: rgba(10, 10, 10, 1);
+
+}
+
+.custom-table th {
+    border: 1px solid rgba(100, 100, 100, 1);
+    text-align: center;
+    padding: 5px;
+    font-size: 15px;
+    background-color: rgba(65, 118, 144, 0.2);
+}
+
+table.custom-table {
+    min-width: 90%;
+}
+
+.custom-table td {
+    border: 1px solid rgba(200, 200, 200, 1);
+    padding: 3px 5px;
+}
+
+.custom-table tr:nth-child(odd) {
+     background-color: rgba(170, 170, 170, 0.1);
+}
+
+li.list-group-item {
+   border: none;
+}
+
+td.button-center {
+    text-align: center;
+}
+
+.status-check {
+    color: rgb(255,0,0);
+}
+
+table.tasks-table {
+    table-layout: fixed;
+    width: 90%;
+}
