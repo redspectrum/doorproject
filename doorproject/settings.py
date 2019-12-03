@@ -126,3 +126,22 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Celery
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+
+CELERY_BEAT_SCHEDULE = {
+    'second-task': {
+        'task': 'blog.tasks.my_second_tasks',
+        'schedule': 6.0,
+    }
+}
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True

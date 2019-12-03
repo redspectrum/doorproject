@@ -8,9 +8,11 @@ class Book(models.Model):
 
 
 class Author(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, verbose_name='Автор')
     age = models.IntegerField()
 
+    def __str__(self):
+        return self.name
 
 
 class Post(models.Model):

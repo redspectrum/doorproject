@@ -9,6 +9,7 @@
             <h1>Welcome {{ name }}!</h1>
 
 
+
                 <form class="col-10" action="{% url 'index' %}">
                     <div class="form-group">
                         <label>Input your value
@@ -28,6 +29,8 @@
     <p>{{ post.title }}</p>
 {% endfor %}
 
+
+            <div class="mt-5"><a href="{% url 'send_email' %}" class="btn btn-danger">SendEmail</a></div>
         </div>
     </div>
 </div>
