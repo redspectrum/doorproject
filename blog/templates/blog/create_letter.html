@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-6 offset-md-2">
+
+            <h1>Create Letter!</h1>
+
+                <form action="{% url 'create'%}" method="post">
+
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group">
+                            {% if field.errors %}
+                                <div class="alert-danger">
+                                    {{ field.errors }}
+                                </div>
+                            {% endif %}
+                            {{ field.label }}
+                            {{ field }}
+                        </div>
+                    {% endfor %}
+                    <button type="submit" name="button" class="btn btn-primary">Create post</button>
+                </form>
+
+<script>
+$(function() {
+  var start = moment();
+
+  $('input[name="sending_time"]').daterangepicker({
+    timePicker: true,
+    singleDatePicker: true,
+    minYear: 2018,
+    startDate: start,
+    timePicker24Hour: true,
+    showDropdowns: true,
+    locale: {
+      format: 'DD/M/YYYY HH:mm'
+    }
+  });
+});
+</script>
+
+
+
+
+<!--            <div class="mt-5"><a href="{% url 'send_email' %}" class="btn btn-danger">SendEmail</a></div>-->
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
     <title>
         {% block title %}
         {% endblock %}
@@ -22,10 +28,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-              <a class="nav-link" href="#">Settings <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'all_letters' %}">All letters <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-              <a class="nav-link" href="#">Users <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'create' %}">Create <span class="sr-only">(current)</span></a>
           </li>
     </ul>
       {% if user.is_authenticated %}

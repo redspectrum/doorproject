@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-8 offset-md-2">
+
+            <h1>All Letters!</h1>
+            <p>After: {{ time_now }}</p>
+            {% for letter in letters %}
+            <p> <b>TITLE:</b> "{{ letter.title }}" <b>SEND_TO:</b> {{ letter.email_destination }} <b>TIME:</b> {{ letter.sending_time }}</p>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -4,10 +4,14 @@ The best your advantage is that you are hungrier than your competitor!
 
 Added Sending mail
 
-Fill: EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
+## Fill: EMAIL_HOST_PASSWORD in .config/.config-env
 
 Install: Redis!
 
-Run celery:
+For celery:
 
 celery -A doorproject worker -B -l INFO
+
+### Run project:
+
+./exec_report.sh

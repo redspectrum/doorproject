@@ -5,15 +5,11 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-6 offset-md-2">
-
-            <h1>Welcome {{ name }}!</h1>
-
-
-
+            <h1>Welcome!</h1>
                 <form class="col-10" action="{% url 'index' %}">
                     <div class="form-group">
                         <label>Input your value
-                            <input type="search" name="search" class="form-control col-10" placeholder="Here...">
+                            <input type="search" name="sending_time" class="form-control col-10" placeholder="Here...">
                         </label>
                     </div>
 
@@ -25,15 +21,12 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
 
-{% for post in posts %}
-    <p>{{ post.title }}</p>
-{% endfor %}
+                {% for letter in letters %}
+                    <p>ID: {{ letter.id }}. NAME: {{ letter.title }}. BY DATE: {{ letter.sending_time }}</p>
+                {% endfor %}
 
-
-            <div class="mt-5"><a href="{% url 'send_email' %}" class="btn btn-danger">SendEmail</a></div>
         </div>
     </div>
 </div>
-
 
 {% endblock %}

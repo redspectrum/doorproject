@@ -20,10 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'p8)^uwn+j0z@ki2(*gq86g8ua1_z@nevwkyf_!z50u^9)+lj*u'
+SECRET_KEY = os.environ.get("BACKEND_SECRET_KEY", 'p8)^uwn+j0z@ki2(*gq86g8ua1_z@nevwkyf_!z50u^9)+lj*u')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DJANGO_DEBUG = os.environ.get("DJANGO_DEBUG", "True")
+DEBUG = False if DJANGO_DEBUG == "False" else True
 
 ALLOWED_HOSTS = ['*']
 
@@ -108,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Minsk'
 
 USE_I18N = True
 
@@ -134,14 +135,14 @@ CELERY_TASK_SERIALIZER = 'json'
 
 CELERY_BEAT_SCHEDULE = {
     'second-task': {
-        'task': 'blog.tasks.my_second_tasks',
-        'schedule': 6.0,
+        'task': 'blog.tasks.send_email_letter',
+        'schedule': 120.0,
     }
 }
 
-EMAIL_HOST = 'smtp.yandex.ru'
-EMAIL_PORT = 465
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST = os.environ.get("EMAIL_HOST")
+EMAIL_PORT = os.environ.get("EMAIL_PORT")
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
